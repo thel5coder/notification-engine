@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package legoas.srv.notification;
+
+service Notification {
+  rpc Send(SendRequest) returns(SendResponse) {}
+}
+
+message SendRequest {
+  string message_code=1;
+  repeated string to=2;
+  string from=3;
+}
+
+message SendResponse {
+  bool is_success=1;
+  int32 status_code=2;
+  string message=3;
+}
+
+
